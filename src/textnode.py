@@ -35,3 +35,5 @@ class TextNode:
             raise Exception("Unsupported text type")
 
         return result
+
+    
