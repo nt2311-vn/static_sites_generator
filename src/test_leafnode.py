@@ -25,6 +25,6 @@ class TestLeafNode(unittest.TestCase):
 
         actual = leaf_node.to_html()
         expected = (
-            "<p class='red' style='italic' >This is a red line with italic text</p>"
+            "<p class = 'red' style = 'italic' >This is a red line with italic text</p>"
         )
         self.assertEqual(actual, expected)

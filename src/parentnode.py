@@ -11,7 +11,7 @@ class ParentNode(HTMLNode):
         if not self.children:
             raise ValueError("children attribute is required")
 
-        children_html = f"<{self.tag} {self.props_to_html()}>"
+        children_html = f"<{self.tag}{self.props_to_html()}>"
 
         for child in self.children:
             children_html += child.to_html()
