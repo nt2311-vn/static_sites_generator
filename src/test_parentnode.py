@@ -41,4 +41,5 @@ class TestParentNode(unittest.TestCase):
 
         actual = parent_node.to_html()
         expected = "<div align = 'center' padding = '10px' ><h1 style = 'color: purple;' >Heading 1</h1><p>First paragraph</p><p>Second paragraph</p></div>"
+
         self.assertEqual(actual, expected)
