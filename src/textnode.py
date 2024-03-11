@@ -19,14 +19,19 @@ class TextNode:
 
     def text_node_to_html_node(self):
         switcher = {
-            "case_text_text": LeafNode(None, self.text, None).to_html(),
-            "case_text_bold": LeafNode("b", self.text, None).to_html(),
-            "case_text_italic": LeafNode("i", self.text, None).to_html(),
-            "case_text_link": LeafNode("a", self.text, {"href": self.url}).to_html(),
-            "case_text_code": LeafNode("code", self.text, None).to_html(),
-            "case_text_image": LeafNode(
+            "text_type_text": LeafNode(None, self.text, None).to_html(),
+            "text_type_bold": LeafNode("b", self.text, None).to_html(),
+            "text_type_italic": LeafNode("i", self.text, None).to_html(),
+            "text_type_link": LeafNode("a", self.text, {"href": self.url}).to_html(),
+            "text_type_code": LeafNode("code", self.text, None).to_html(),
+            "text_type_image": LeafNode(
                 "img", "", {"src": self.url, "alt": self.text}
             ).to_html(),
         }
 
-        return switcher.get(self.text_type, "Non supported text type.")
+        result = switcher.get(self.text_type)
+
+        if result is None:
+            raise Exception("Unsupported text type")
+
+        return result
